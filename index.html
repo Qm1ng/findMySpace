@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>findMySpace</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPBZoC_B6peOkAKRrlxEfUG4JT1xBiyvM&callback=initMap"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h1 class="page-header text-center">findMySpace</h1>
+    <div class="row">
+        <div class="col-sm-2">
+            <h3>篩選條件</h3>
+            <lable>地區 : </lable><br>
+            <select id="getRegion">
+                <option value="">-請選擇-</option>
+                <option value="新北市">新北市</option>
+                <option value="臺北市">臺北市</option>
+                <option value="基隆市">基隆市</option>
+                <option value="桃園市">桃園市</option>
+                <option value="宜蘭縣">宜蘭縣</option>
+                <option value="新竹縣">新竹縣</option>
+                <option value="新竹市">新竹市</option>
+                <option value="苗栗縣">苗栗縣</option>
+                <option value="彰化縣">彰化縣</option>
+                <option value="南投縣">南投縣</option>
+                <option value="臺中市">臺中市</option>
+                <option value="雲林縣">雲林縣</option>
+                <option value="嘉義縣">嘉義縣</option>
+                <option value="嘉義市">嘉義市</option>
+                <option value="臺南市">臺南市</option>
+                <option value="台東縣">台東縣</option>
+                <option value="高雄市">高雄市</option>
+                <option value="屏東縣">屏東縣</option>
+                <option value="花蓮縣">花蓮縣</option>
+                <option value="澎湖縣">澎湖縣</option>
+            </select>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="map-container">
+                <div id="map" class="responsive-16by9"></div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <h3>推薦列表</h3>
+            <ul id="recommandList"></ul>
+        </div>
+
+    </div>
+
+    <script src="https://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AP&CaseNo2=13&FileType=2&Lang=C&FolderType=O&callback=getData"></script>
+
+
+</body>
+
+</html>

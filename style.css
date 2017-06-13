@@ -135,6 +135,10 @@
    }
    /*RESET*/
    
+   * {
+       border: 1px solid red;
+   }
+   
    #map {
        height: 100%;
        width: 100%;
@@ -147,4 +151,8 @@
        overflow: hidden;
        padding: 0;
        padding-bottom: 56.25%;
+   }
+   
+   #areaFilter {
+       background: green;
    }

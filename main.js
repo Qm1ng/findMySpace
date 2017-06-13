@@ -25,12 +25,13 @@ function initMap() {
     }
 
 
-    xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     xhr.open('get', 'https://raw.githubusercontent.com/Qm1ng/html/master/Data.json');
     xhr.send();
 
     xhr.onload = function() {
         const data = JSON.parse(xhr.responseText);
+
         //建立標記
         for (i = 0; i < data.length; i++) {
             var str = {};
@@ -60,3 +61,15 @@ function initMap() {
             '發生錯誤 : 您的瀏覽器不支援定位功能');
     }
 }
+
+
+
+
+$(document).ready(function() {
+
+    $("#getRegion").change(function() {
+        alert($(this).val());
+    });
+
+
+});

@@ -59,7 +59,7 @@ header {
     background: #F9F7F7;
     height: 160px;
     margin: 0 auto;
-    margin-bottom: 1%;
+    margin-bottom: 0.5%;
 }
 h1 {
     padding:2%;
@@ -78,7 +78,7 @@ h4 {
 .wrapper {
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 2% 1%;
+    padding: 1% 1%;
     background: #DBE2EF;
 }
 h6 {
@@ -91,7 +91,7 @@ h6 {
     width: 25%;
 }
 .select-container {
-    padding-bottom: 10%;
+    padding-bottom: 5%;
 }
 select#getRegion, select#getRegion-color {
    -webkit-appearance: button;
@@ -129,10 +129,21 @@ select#getRegion-color {
 }
 
 .list-container {
+    
+    text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-
+.recommandLi {
+    text-align: center;
+    height: 120px;
+    border-bottom: 1px solid black;
+}
+    .recommandLi h3 {
+        padding-top: 2%;
+        font-size: 1.2em;
+        color:red;
+    }
 #map {
     width: 75%;
     height: 0;
@@ -149,10 +160,26 @@ footer {
     background: #112D4E;
     height: 70px;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: 1.5%;
 }
 footer p {
     color: white;
     text-align: center;
-    padding-top: 2.5%;
+    padding-top: 3%;
+}
+
+@media screen and (max-width: 768px){
+.control-bar {
+    text-align: center;
+    clear:both;
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 414px){
+.control-bar {
+    text-align: center;
+    clear:both;
+    width: 100%;
+}
 }

@@ -1,10 +1,11 @@
 //全域變數
+var pos = {};
 var data; //json parse
 var placeMarker = [];
 var placeInfo = [];
 var contentString = [];
 var map;
-
+var cityCircle;
 
 
 function initMap() {
@@ -39,11 +40,6 @@ function initMap() {
         }
     }
 
-
-
-
-
-
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -54,7 +50,7 @@ function initMap() {
     //取得地區資訊
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
@@ -62,6 +58,29 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('您目前所在位置');
             map.setCenter(pos);
+            if (pos != null) {
+                cityCircle = new google.maps.Circle({
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.1,
+                    strokeWeight: 2,
+                    fillColor: '#1100ff',
+                    fillOpacity: 0.1,
+                    map: map,
+                    center: pos,
+                    radius: 5000
+                });
+
+                for (var i = 0; i < data.length; i++) {
+                    var recommandList;
+                    if (data[i]['縣市區域'] == '高雄市') {
+                        recommandList = '<div class="recommandLi"><h3>' + data[i]['創業空間名稱'] + '</h3><p><strong>' + data[i]['地址'] + '</strong></p><p>' + data[i]['所屬單位'] + '</p><p>連絡電話: '+ data[i]['連絡電話'] +'</p></div>';
+                        recommandList = recommandList + recommandList;
+                    }
+                }
+                document.getElementById('recommandList').innerHTML = recommandList;
+            }
+
+
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -71,8 +90,7 @@ function initMap() {
     }
 }
 
-
-
+//select 區域 只顯示選擇的區域
 function getRegion($area) {
     $area = document.getElementById("getRegion").value;
 
@@ -85,3 +103,9 @@ function getRegion($area) {
         }
     }
 }
+
+
+$(document).ready(function () {
+
+
+});

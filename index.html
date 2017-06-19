@@ -5,22 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>findMySpace</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPBZoC_B6peOkAKRrlxEfUG4JT1xBiyvM&callback=initMap"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>findMySpacE</title>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1 class="page-header text-center">findMySpace</h1>
-    <div class="row">
-        <div class="col-sm-2 text-center" id="areaFilter">
-            <h3>篩選條件</h3>
-            <lable>地區 : </lable><br>
+
+    <header>
+        <h1>findMySpacE</h1>
+        <hr>
+        <h4>快速找到最合適的工作空間</h4>
+    </header>
+
+    <div class="wrapper">
+        <div class="control-bar">
+        <div class="select-container" onchange="getRegion()">
+            <h6>篩選地區</h6>
             <select id="getRegion">
-                <option value="">-請選擇-</option>
+                <option value="" disabled selected>-請選擇-</option>
                 <option value="新北市">新北市</option>
                 <option value="臺北市">臺北市</option>
                 <option value="基隆市">基隆市</option>
@@ -43,22 +46,27 @@
                 <option value="澎湖縣">澎湖縣</option>
             </select>
         </div>
-
-        <div class="col-sm-7">
-            <div class="map-container">
-                <div id="map" class="responsive-16by9"></div>
-            </div>
+        <div class="list-container">
+            <h6>推薦列表</h6>
+            <ul id="recommandList">
+                <li><img src="http://fakeimg.pl/200x100/eeeeee/?text=sample&font=monospace" alt=""></li>
+                <li><img src="http://fakeimg.pl/200x100/eeeeee/?text=sample&font=monospace" alt=""></li>
+                <li><img src="http://fakeimg.pl/200x100/eeeeee/?text=sample&font=monospace" alt=""></li>
+            </ul>
+        </div>
         </div>
 
-        <div class="col-sm-3 text-center">
-            <h3>推薦列表</h3>
-            <ul id="recommandList"></ul>
+        <div class="map-container">
+            <div id="map"></div>
         </div>
-
+        <div class="clear"></div>
     </div>
 
+    <footer>
+        <p>findMySpacE &copy 2017.Website by Ming</p>
+    </footer>
     <script src="https://data.kaohsiung.gov.tw/Opendata/DownLoad.aspx?Type=2&CaseNo1=AP&CaseNo2=13&FileType=2&Lang=C&FolderType=O&callback=getData"></script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPBZoC_B6peOkAKRrlxEfUG4JT1xBiyvM&callback=initMap"></script>
 
 </body>
 

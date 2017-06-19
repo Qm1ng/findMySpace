@@ -69,15 +69,15 @@ function initMap() {
                     center: pos,
                     radius: 5000
                 });
-
+                //reccommandList
+                var string='';
                 for (var i = 0; i < data.length; i++) {
-                    var recommandList;
                     if (data[i]['縣市區域'] == '高雄市') {
-                        recommandList = '<div class="recommandLi"><h3>' + data[i]['創業空間名稱'] + '</h3><p><strong>' + data[i]['地址'] + '</strong></p><p>' + data[i]['所屬單位'] + '</p><p>連絡電話: '+ data[i]['連絡電話'] +'</p></div>';
-                        recommandList = recommandList + recommandList;
+                        string = string + '<div class="recommandLi"><h3>' + data[i]['創業空間名稱'] + '</h3><p><strong>' + data[i]['地址'] + '</strong></p><p>' + data[i]['所屬單位'] + '</p><p>連絡電話: ' + data[i]['連絡電話'] + '</p></div>';
+                       
                     }
                 }
-                document.getElementById('recommandList').innerHTML = recommandList;
+                document.getElementById('recommandList').innerHTML = string;
             }
 
 

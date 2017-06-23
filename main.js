@@ -2,8 +2,8 @@
 var pos = {};
 var data; //json parse
 var placeMarker = [];
-var placeInfo = [];
-var contentString = [];
+var placeWindow = [];
+var contentString;
 var map;
 var cityCircle;
 
@@ -16,15 +16,13 @@ function initMap() {
         },
         zoom: 13
     });
-    var infoWindow = new google.maps.InfoWindow({
-        map: map
-    });
 
     //取得json資料
     var xhr = new XMLHttpRequest();
     xhr.open('get', 'https://raw.githubusercontent.com/Qm1ng/html/master/Data.json');
     xhr.send(null);
     xhr.onload = function () {
+
         data = JSON.parse(xhr.responseText);
         for (i = 0; i < data.length; i++) {
             placeMarker[i] = new google.maps.Marker({
@@ -37,6 +35,17 @@ function initMap() {
                 animation: google.maps.Animation.DROP
                 //icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
+
+            placeWindow[i] = new google.maps.InfoWindow({
+                contentString: date[i]['創業空間名稱']
+            });
+
+            placeMarker.addListener('click', function(){
+                map.setCenter(placeMarker.getPosition());
+            });
+
+
+
         }
     }
 
@@ -103,9 +112,3 @@ function getRegion($area) {
         }
     }
 }
-
-
-$(document).ready(function () {
-
-
-});
